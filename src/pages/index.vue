@@ -1,14 +1,29 @@
 <template>
 	<div class="Warp">
-		<Head />
+		<Head  />
+
+		<Head  v-show='ernav' :color='color' :po='po'  :tex='tex' :bs='bs'/>
+
 		<div class="indexWarp">
 			<div class="index">
-				<span class="logoImg icon" ></span><br>
-				<span class="logoText icon" ></span><br>
+				<span style="width: 77px;
+    height: 109px;" class="logoImg icon" ></span><br>
+				<span style="    background-position: -235px -192px;" class="logoText icon" ></span><br>
 				<span class="text">去中心化的二手交易区块链创新生态系统</span><br>
 				<button @click='download' class="ibtn image down"></button>
 				<button class="ibtn image  book"></button>	
 
+
+			<transition
+			name="custom-classes-transition"
+    enter-active-class="animated rollIn"
+    leave-active-class="animated rollOut">
+					<div v-if='alert' class="alert">
+							<span  @click='co' style="position: absolute;right: 20px;top:20px;"><img src="/static/img/close.png"></span>
+							<p class="lh" style="font-size: 20px;color: #1C243A;letter-spacing: 0;margin-top: 50px;">扫描二维码 下载APP</p><br>
+							<p class="lh" style="width: 221px;height: 228px;margin-top:20px;"><img style="width: 100%;height: 100%;" src="/static/img/e.png"></p>
+						</div>
+			</transition>
 			</div>
 		</div>
 
@@ -73,47 +88,99 @@
 			<div class="information">
 				<p class="lh title icon"></p>
 				<ul>
-					<li>
+					<li @click='todeta(id)' v-for='(ii,id) in 3'>
 						<img src="/static/img/d81bca446095aa380f3b38c611f8e839688e5ca91429d-BGS6ii_fw658.jpeg">
 						<p class="titles">数据块链（PreICO）</p>
 						<p class="deta">DataBlockChain.io是一个革命性的数据平台，它打乱了公司和个人收集优质数据的方式。我们的产品将</p>
 						<p class="moew">查看更多 →</p>
 					</li>
-					<li>
-						<img src="/static/img/d81bca446095aa380f3b38c611f8e839688e5ca91429d-BGS6ii_fw658.jpeg">
-						<p class="titles">数据块链（PreICO）</p>
-						<p class="deta">DataBlockChain.io是一个革命性的数据平台，它打乱了公司和个人收集优质数据的方式。我们的产品将</p>
-						<p class="moew">查看更多 →</p>
-					</li>
-					<li>
-						<img src="/static/img/d81bca446095aa380f3b38c611f8e839688e5ca91429d-BGS6ii_fw658.jpeg">
-						<p class="titles">数据块链（PreICO）</p>
-						<p class="deta">DataBlockChain.io是一个革命性的数据平台，它打乱了公司和个人收集优质数据的方式。我们的产品将</p>
-						<p class="moew">查看更多 →</p>
-					</li>
+					
 				</ul>
-				<button>更多资讯</button>
+				<button @click='tozixun'>更多资讯</button>
 			</div>
 		</div>
 
 		<div class="linMapWarp">
+			<div :class="'side' +f" class="sides image" v-for='(i,f) in 3'></div>
+
+
 			<div class="map">
 				<p class="lh icon title">	</p><br>	
 				<div class="img image lh">
-					<div class="texts1">
-						ctyfcujvjyhk
+					<div :class="'texts' + index" class="tesrs" v-for='(item,index) in line'>  
+						<p class="title">{{item.title}}</p>
+						<p class="detali">{{item.detali}}</p>
 					</div>
 				</div>
 			</div>		
 		</div>
+
+
+		<div class="endWarp">
+			<div class="end">
+				<div class="quotes image"></div>
+
+				<div class="info">
+					<p class="icon" style="background-position: -1963px -753px;"></p>
+					<p class="terx">炉石星球项目团队由XLab基金会决策委员会组建，由多国成员组成。运营团队主要由保险公司高管、专注二手市场领域的投资人、 区块链资深专家以及二手市场行业资深程序员构成，核心团队成员在二手行业有超过十年以上、保险科技领域有着多年的经验和积累。并在美国运营有成熟的二手线上交易平台</p>
+				</div>
+
+				<ul class="chnegyuan">
+					<transition-group
+			name="custom-classes-transition"
+    enter-active-class="animated rollIn"
+    leave-active-class="animated rollOut2">
+					<li v-if="infoac == id " @mousedown='add' @mousemove='add' @mouseup='add'  :key='id'   v-for='(ii,id) in proson'>
+						<p style="margin-bottom: 35px;">
+							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + id}}</span><br>
+							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
+							<img style="float: right;width: 100px;height: 100px;border-radius: 50%;border:1px solid;transform: translateY(-60px);" src="#">
+						</p>
+						<span style="font-size: 16px;color: #9CA8CA;letter-spacing: 0;line-height: 30px;margin-bottom: 1%" v-for="(i,d) in ii.span">{{i}}<br></span>
+					</li>
+				</transition-group>
+					<!-- <li class="sss" style="width:50%;height: 542px;position: absolute;right: 0;background:linear-gradient(-135deg, #3D486B 0%, #262F49 100%);	"></li>		 -->
+					<transition-group
+			name="custom-classes-transition"
+    enter-active-class="animated rollIn"
+    leave-active-class="animated  rollOut2"> 
+					<li v-if="Number(infoac)+1 == ids "  :key='ids'  style="margin-left: 55%;"  @mousedown='add' @mousemove='add' @mouseup='add' v-for='(ii,ids) in proson'>
+						<p style="margin-bottom: 35px;">
+							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + ids}}</span><br>
+							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
+							<img style="float: right;width: 100px;height: 100px;border-radius: 50%;border:1px solid;transform: translateY(-60px);" src="#">
+						</p>
+						<span style="font-size: 16px;color: #9CA8CA;letter-spacing: 0;line-height: 30px;margin-bottom: 1%" v-for="(i,d) in ii.span">{{i}}<br></span>
+					</li>
+				</transition-group>
+
+
+				</ul>
+
+				<div class="pages">
+					<div class="lefts icon" @click='sub'></div>
+					<div class="rights icon" @click='addss' ></div>
+
+				</div>
+				
+
+			</div>
+		</div>
+		<Footer />
 	</div>
 </template>
 
 <script>
 	import Head from '../components/header'
+	import Footer from '../components/footer'
+
+
+		var alert = null;
+
 	export default{
 		components:{
-			Head
+			Head,
+			Footer
 		},
 		data(){
 			return({
@@ -144,12 +211,185 @@
 					{
 						text:'链上质量溯源',
 					}
-				]
+				],
+				line:[
+					{
+						title:'第一阶段（2015.5-2017.9）',
+						detali:'团队进行了深入的行业调研，走访了数十个国家和地区，拜访了数百家二手商家和科技公司，并在全球发布了数个非常有影响力的行业报告，在二手行业上下游进行了投资。 区块链和二手行业结合进入提案和探讨。'
+					},
+					{
+						title:'第二阶段（2017.9-2017.12）',
+						detali:'团队加强，正式立项炉石星球项目，启动基石投资和代币互换计划，并正式启动炉石星球主网项目开发。'
+					},
+					{
+						title:'第三阶段（2018.1-2018.8）',
+						detali:'基于以太坊完成第一个生态应用炉石星球，全球用户都可以在区块链上提交自己的二手物品，并可以使用代币进行产品购买，第一个落地项目 炉石星球主网同步开发启动。'
+					},
+					{
+						title:'第四阶段（2018.9-2019）',
+						detali:'炉石星球主网进入生产环节， 落地区块链商家管理系统 和 二手鉴定溯源系统，选择合适方案进行代币互换和互通。'
+					}
+				],
+				proson:[
+					{
+						name:'杨轩',
+						p:'中国区负责人',
+						img:'#',
+						span:[
+							'曲速资本创始合伙人' ,
+							'浙报集团梦工场创投' ,
+							'董事总经理' ,
+							'全国信息学奥赛一等奖'
+						]
+					},
+					{
+						name:'杨轩',
+						p:'中国区负责人',
+						img:'#',
+						span:[
+							'曲速资本创始合伙人' ,
+							'浙报集团梦工场创投' ,
+							'董事总经理' ,
+							'全国信息学奥赛一等奖'
+						]
+					},
+					{
+						name:'杨轩',
+						p:'中国区负责人',
+						img:'#',
+						span:[
+							'曲速资本创始合伙人' ,
+							'浙报集团梦工场创投' ,
+							'董事总经理' ,
+							'全国信息学奥赛一等奖'
+						]
+					},
+					{
+						name:'杨轩',
+						p:'中国区负责人',
+						img:'#',
+						span:[
+							'曲速资本创始合伙人' ,
+							'浙报集团梦工场创投' ,
+							'董事总经理' ,
+							'全国信息学奥赛一等奖'
+						]
+					},
+				],
+				infoac:0,
+				infoacs:1,
+				color:'#fff',
+				po:'fixed',
+				tex:'#000',
+				ernav:false,
+				bs:'rgba(177, 191, 230) 0px -3px 22px 0px',
+				alert:false,
+				flag:null,
+				x:null,
+				y:null
+
 			})
 		},
 		methods:{
 			download(){
-				alert('下载')
+				this.alert = true
+				alert = true
+			},
+			co(){
+				this.alert = 0
+
+			},
+			tozixun(){
+				this.$router.push('/zixun')
+			},
+			todeta(id){
+				this.$router.push(`/zixunDetali/${id}`)
+			},
+			add(e){
+				console.log(e.type)
+				switch (e.type){
+					case 'mousedown':
+					this.flag = 0
+						this.x = e.offsetX
+							
+						break;
+					case 'mousemove':
+					this.flag = 1
+						break;
+					case 'mouseup':
+							console.log('snj')
+							this.y = e.offsetX
+							console.log(this.x, this.y)
+							if(this.flag == 1){
+								if(this.x > this.y && this.x - this.y >=80){
+									console.log('sub')
+									if(this.infoac == 0){
+											this.infoac = 0
+											return
+
+									}
+										this.infoac-= 1
+									return
+								}
+								if(this.x<this.y && this.y - this.x >=80){
+									console.log('add')
+									if(this.infoac>=2){
+										this.infoac = 2
+											return
+									}
+									this.infoac += 1
+									return
+								}
+								if(this.x == this.y){
+									return
+								}
+
+							}else{
+								console.log('no')
+							}
+						break;
+						
+						
+				}
+				return
+				if(this.infoac>=2){
+					this.infoac = 2
+					return
+				}
+				this.infoac += 1
+
+			},
+			addss(){
+				if(this.infoac>=2){
+					this.infoac = 2
+					return
+				}
+				this.infoac += 1
+			},
+			sub(){
+				if(this.infoac == 0){
+						this.infoac = 0
+						return
+
+				}
+				this.infoac-= 1
+
+			}
+		},
+		mounted(){
+
+			window.onscroll = (e)=> {
+				 window.event.returnValue = false 
+				 e.preventDefault()
+				this.alert = 0
+			
+				if(document.documentElement.scrollTop >=document.documentElement.offsetHeight){
+					this.ernav = true
+
+				}else{
+					this.ernav = false
+
+				}
 			}
 		}
 	}
@@ -170,12 +410,24 @@
 			>.index{
 				width: 1200px;
 				height: 100%;
+
 				margin: auto;
 				position: relative;
 				z-index: 3;
 				text-align: center;
 				padding-top: 345px;
 				color: #fff;
+				>.alert{
+					position: absolute;top: 130px;
+					bottom: 0;
+					left: 0;
+					text-align: center;
+					right: 0;
+					margin: auto;
+					width: 572px;
+					height: 366px;
+					background-color: #fff;
+				}
 				>.logoImg{
 				    width: 77px;
 					height: 109px;
@@ -212,6 +464,8 @@
 				}
 				>.icon{
 					display:inline-block;
+					width: 	336px;
+					height:67px;
 				}
 			}
 		}
@@ -344,6 +598,7 @@
 			width: 100%;
 			height: 100%;	
 			position: relative;		
+
 			>.str{
 					width: 100%;
 					height: 300px;
@@ -352,6 +607,7 @@
 			>.san{
 				width: 100%;
 				height:600px;
+
 				 background: linear-gradient(-9deg, transparent 374px, #262F49 0);
 			}
 			>.app{
@@ -364,6 +620,8 @@
 				>.bpp{	
 					width: 1400px;
 					height: 620px;
+						box-shadow:0px -8px 55px 0 rgba(58, 69, 104, 0.3);
+
 					background-color: #fff;
 					>.title{
 						width: 440px;
@@ -477,6 +735,7 @@
 					>li{
 						width: 	370px;
 						height: 473px;
+						cursor: pointer;
 						background-color: #fff;
 						padding-top: 20px;
 						transition: .5s all;
@@ -532,11 +791,34 @@
 		>.linMapWarp{
 			width: 	100%;
 			height:100%;
+			position: relative;
+			>.sides{
+				position: absolute;
+			}
+			>.side0{
+				height: 240px;
+				width: 190px;
+				top:40%;
+				background-position: -620px -1639px;
+			}
+			>.side1{
+				height: 264px;
+   				 width: 152px;
+   				 right: 0;
+   				 top: 26%;
+   				 background-position: -978px -1614px;
+			}
+			>.side2{
+				height: 143px;
+   				 right: 0;
+   				 top:80%;
+  				  width: 148px;
+  				  background-position: -1337px -1679px;
+			}
 			>.map{
 				width: 	1200px;
 				height: 100%;
 				margin: auto;
-				border:1px solid red;
 				padding-top: 8%;
 				text-align: center;
 				>.title{
@@ -550,13 +832,157 @@
 					height: 347px;
 					background-position: -90px -1542px;
 					position: relative;
+					>.tesrs{
+						width: 115%;
+						position: absolute;
+						>.title{
+							font-size: 16px;
+							color: #1C243A;
+							letter-spacing: 0.3px;
+							margin-bottom: 2%;							
+						}
+						>.detali{
+							font-size: 16px;
+							color: #9CA8CA;
+							letter-spacing: 0.3px;
+						}
+					}
+					>.texts0{
+						    top: 42%;
+						left: -120%;
+						>.title{
+							text-align: right;
+						}
+						>.detali{
+							text-align: right;
+						}
+					}
 					>.texts1{
-						position: absolute;top: 0;
+						top:18%;
+    					left: 100%;
+						>.title{
+							text-align: left;
+						}
+						>.detali{
+							text-align: left;
+						}
+					}
+					>.texts2{
+						top: 75%;
+    					left: 100%;
+						>.title{
+							text-align: left;
+						}
+						>.detali{
+							text-align: left;
+						}
+					}
+					>.texts3{
+						top: 110%;
+    					left:-30%;
+						>.title{
+							text-align: center;
+						}
+						>.detali{
+							text-align: center;
+						}
 					}
 
 				}
 
 			}
+		}
+		>.endWarp{
+			width: 100%;
+					overflow: hidden;
+			height: 849px;
+			>.end{
+				width: 100%;
+				height: 849px;
+				position: relative;
+				>.pages{
+					position: absolute;
+					width: 180px;
+					bottom: 8%;
+					right: 20%;
+					height: 60px;
+					display: flex;
+					justify-content: space-between;
+					>.lefts,.rights{
+						width: 60px;
+						height: 60px;
+						border-radius: 50%;
+						cursor: pointer;
+					}
+					>.lefts{
+						right: 25%;
+						background-position: -1510px -138px;
+					}
+					>.rights{
+						right: 20%;
+						background-position: -1383px -138px;
+					}
+				}
+				
+				>.quotes{
+					width: 517px;
+					height: 484px;
+					background-position: -98px -2192px;
+					position: absolute;
+					top: 0;
+				}
+				>.info{
+					width:474px;
+					position: absolute;
+					top:30%;
+					left: 15%;
+					>.icon{
+						width: 336px;
+						height: 67px;
+						margin-bottom: 40px;
+					}
+					>.terx{
+						font-size: 16px;
+						color: #9CA8CA;
+						letter-spacing: 0;
+						line-height: 30px;
+					}
+				}
+				>.chnegyuan{
+					width: 50%;
+					height: 540px;
+					background:linear-gradient(-135deg, #3D486B 0%, #262F49 100%);
+					position:absolute;
+					cursor: pointer;
+					right: 0;
+					top:15%;
+					li:hover:not(.sss){
+						transform:scale(1.02)
+
+					}
+					li:not(.sss){
+						box-shadow: 0 15px 21px 0 rgba(58,69,104,0.30);
+
+					}
+					li{
+						width: 474px;
+						height: 300px;
+						background-color: #fff;
+						border-radius: 8px;
+						padding-right: 20px;
+						padding-left: 43px;
+						position: absolute;
+						float: left;
+						left: -10%;
+						top:25%;
+						padding-top: 26px;
+						transition: 0.5s all;
+						box-shadow: 0 15px 21px 0 rgba(58,69,104,0.30);
+
+					}
+				}
+			}
+
 		}
 	}
 </style>
