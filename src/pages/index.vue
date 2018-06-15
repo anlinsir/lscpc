@@ -50,18 +50,18 @@
 
 		<div class="proWarp">
 			<div class="pro">
-				<span class="lh icon title"></span>
+				<span class="lh icon title"></span><br>
 				<span class="lh image IIMg"></span>
-				<span class="lh line"></span>
 			</div>
+				<span :style="{bottom:linS ?linS : ''}" class="lh line"></span>
+
 		</div>
 
 		<div class="appWarp">
-			<div class="str" ></div>
 			<div class="san"></div>	
 			<div class="app">
-				<div class="bpp lh">
-					<p class="lh title icon"></p>
+				<div  class="bpp lh" :style="{width:bppS?bppS:'',}">
+					<p :style="{marginBottom:bpptiS?bpptiS : '',marginTop:bpptiS?bpptiS : ''}" class="lh title icon"></p>
 					<ul>
 						<li v-for='(item,index) in bpp'>
 							<p class="lh image" :class=" 'ulImg'+ index"></p>
@@ -71,7 +71,7 @@
 					
 				</div>	
 			</div>		
-					<div class="str"></div>	
+					<div :style="{bottom:strSb?strSb:'15%'}" class="str"></div>	
 		</div>
 
 		<div class="ecologyWarp">
@@ -87,8 +87,8 @@
 		<div class="informationWarp">
 			<div class="information">
 				<p class="lh title icon"></p>
-				<ul>
-					<li @click='todeta(id)' v-for='(ii,id) in 3'>
+				<ul :style="{marginBottom:infoUls?infoUls : '' }">
+					<li :style="{width:inilli[0]?inilli[0]:'',height:inilli[1] ? inilli[1] :'' }" @click='todeta(id)' v-for='(ii,id) in 3'>
 						<img src="/static/img/d81bca446095aa380f3b38c611f8e839688e5ca91429d-BGS6ii_fw658.jpeg">
 						<p class="titles">数据块链（PreICO）</p>
 						<p class="deta">DataBlockChain.io是一个革命性的数据平台，它打乱了公司和个人收集优质数据的方式。我们的产品将</p>
@@ -286,7 +286,13 @@
 				alert:false,
 				flag:null,
 				x:null,
-				y:null
+				y:null,
+				bppS:'',
+				infoUls:'',
+				inilli:[],
+				bpptiS:'',
+				strSb:'',
+				linS:''
 
 			})
 		},
@@ -377,7 +383,15 @@
 			}
 		},
 		mounted(){
-
+			if(document.documentElement.offsetWidth < 1400){
+				this.bppS = '100%'
+				this.infoUls = '-4%'
+				this.inilli[0] = '30%'
+				this.inilli[1] = '80%'
+				this.bpptiS = '3%'
+				this.strSb = '5%'
+				this.linS = '-10%'
+			}
 			window.onscroll = (e)=> {
 				 window.event.returnValue = false 
 				 e.preventDefault()
@@ -415,7 +429,7 @@
 				position: relative;
 				z-index: 3;
 				text-align: center;
-				padding-top: 345px;
+				padding-top: 13%;
 				color: #fff;
 				>.alert{
 					position: absolute;top: 130px;
@@ -568,30 +582,34 @@
 			position: relative;
 			z-index: 5;
 			background-image: linear-gradient(-179deg, #3D486B 0%, #262F49 100%);
+			>.line{
+				width: 3px;
+				height: 58px;
+				border-left:2px dashed #9883F1;
+				position: absolute;
+				bottom: 20%;
+				left: 50%;
+			}
 			>.pro{
 				width: 1200px;
 				height: 100%;
 				margin: auto;
-				padding-top: 100px;
+				padding-top: 5%;
 				text-align: center;
+				overflow: hidden;
 				>.title{
 					width: 441px;
 					height: 67px;
 					background-position: -939px -579px;
-					margin-bottom: 100px;
+					margin-bottom: 1%;
 				}
 				>.IIMg{
-				    width: 800px;
-					background-size: 188%;
-					height: 610px;
-					background-position: -365px -98px;
+				    width: 70%;
+					background-size: 170%;
+					height:610px;
+					background-position: -300px -81px;
 				}
-				>.line{
-					width: 3px;
-					height: 58px;
-					border-left:2px dashed #9883F1;
-					transform: translateX(-408px) translateY(5px);
-				}
+				
 			}
 		}
 		>.appWarp{
@@ -613,29 +631,33 @@
 			>.app{
 				width: 1200px;				
 				margin: auto;
+				height: 100%;
 				text-align: center;
 				position: absolute;top: 100px;
 				left: 30%;
 				transform: translateX(-25%);
 				>.bpp{	
-					width: 1400px;
-					height: 620px;
-						box-shadow:0px -8px 55px 0 rgba(58, 69, 104, 0.3);
-
+					width: 1400px ;
+					height: 60%;
+					box-shadow:0px -8px 55px 0 rgba(58, 69, 104, 0.3);
+					transform: translateX(0%);
+					padding-bottom: 5%;
 					background-color: #fff;
 					>.title{
 						width: 440px;
 						height: 67px;
-						margin-bottom: 100px;
+						margin-bottom: 10%;
 						background-position: -41px -753px;
-						margin-top: 120px;
+						margin-top: 8%;
 					}
 					>ul{
 						width: 100%;
 						height: 213px;
 						padding: 0 100px;
+						display: flex;
+						justify-content: space-between;
 						>li:not(:nth-last-child(1)){
-							margin-right: 180px;
+
 						}
 						>li{
 							width: 150px;
@@ -676,8 +698,7 @@
 				height:58px;
 				border-left: 2px dashed  #9883F1;
 				position: absolute;
-				bottom: 100px;
-				background-color: 	transparent;
+				background-color: transparent;
 				left: 	50%;
 			}
 		}
@@ -715,20 +736,20 @@
 				width: 	1200px;
 				height: 100%;
 				margin: auto;
-				padding-top: 160px;
+				padding-top:3%;
 				text-align: center;
 				>.title{
 					width: 	196px;
 					height: 67px;
 					background-position: -1004px -753px;
-					margin-bottom: 100px;
+					margin-bottom:3%;
 				}
 				>ul{
 					width: 	100%;
 					display: flex;
 					justify-content: space-between;
 					height: 473px;
-					margin-bottom: 81px;
+					margin-bottom: 10%;
 					>li:hover{
 						transform: scale(1.04);
 					}
@@ -739,24 +760,23 @@
 						background-color: #fff;
 						padding-top: 20px;
 						transition: .5s all;
+						padding: 1% 1%;
 						box-shadow: 0 8px 22px 0 rgba(177, 191, 230, 0.4);
 
 						>img{
-							width: 	330px;
-							height: 223px;
-							margin-bottom: 30px;
+							width: 	100%;
+							height: 50%;
+							margin-bottom: 3%;
 						}
 						>.titles{
 							text-align: left;
-							padding:0 20px;
 							font-size: 20px;
 							color: #1C243A;
 							letter-spacing: 0.38px;
 							margin-bottom: 10px;
 						}
 						>.deta{
-							padding: 0 20px;
-							font-size: 16px;
+ 							font-size: 16px;
 							text-align: left;
 							color: #9CA8CA;
 							letter-spacing: 0.3px;
@@ -819,13 +839,13 @@
 				width: 	1200px;
 				height: 100%;
 				margin: auto;
-				padding-top: 8%;
+				padding-top: 5%;
 				text-align: center;
 				>.title{
 					width: 	441px;
 					height: 67px;
 					background-position:-1380px -753px;
-					margin-bottom: 119px;
+					margin-bottom: 5%;
 				}
 				>.img{
 					width: 	346px;

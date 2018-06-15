@@ -4,9 +4,9 @@
 			<div @click='toIndex' class="leftIMg">
 				<span @click='toIndex' class="logo icon"></span>
 			</div>
-
+<!-- tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :'' -->
 			<ul class="rightUl">
-				<li   @mousemove='othercolor(index)' @mouseleave='othercolors(index)' :style="{color:tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :''}" v-on:click="search(index)" :class="navActive == index ? 'navActive' : '' "  v-for='(item,index) in navList'>{{item}}
+				<li   @mousemove='othercolor(index,$event)' @mouseleave='othercolors(index,$event)' :style="{color:tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :''}" v-on:click="search(index)" :class="navActive == index  ? 'navActive' : '' "  v-for='(item,index) in navList'>{{item}}
 					 <transition name="slide-fade"><div v-show='navActive == index || borderShow3 == index' class="border"></div></transition>
 				</li>
 			</ul>
@@ -54,19 +54,19 @@
 
 				}
 				if(id == 1){
-					document.documentElement.scrollTop  = 980
+					document.documentElement.scrollTop  = document.documentElement.offsetHeight
 				}
 				if(id == 2){
-					document.documentElement.scrollTop  = 2299
+					document.documentElement.scrollTop  = document.documentElement.offsetHeight + 828+547 
 
 				}
 				if(id == 3){
-					document.documentElement.scrollTop  = 4600
+					document.documentElement.scrollTop  = document.documentElement.offsetHeight*3  +250+ 828 +547
 
 					// this.$router.push('/zixun')
 				}
 				if(id == 4){
-					document.documentElement.scrollTop  = 5499
+					document.documentElement.scrollTop  = document.documentElement.offsetHeight*4 +250 + 828 +547
 
 				}
 				if(id == 5){
@@ -77,11 +77,27 @@
 			toIndex(){
 				this.$router.push('/index')
 			},
-			othercolor(id){
+			othercolor(id,e){
+				console.log(e.target.parentNode.children)
+				for(let i of e.target.parentNode.children){
+					i.style.color = 'grey'
+				}
+				e.target.style.color = ''
+				document.getElementsByClassName('navActive')[0].style.color = ''
+
 				this.borderShow3 = id 
 			},
-			othercolors(){
+			othercolors(id,e){
 				this.borderShow3 = -1 
+				e.target.style.color = ''
+
+				for(let i of e.target.parentNode.children){
+					i.style.color = this.tex ? this.tex : ''
+				document.getElementsByClassName('navActive')[1].style.color = ''
+					
+				}
+
+				
 
 			}
 		},
@@ -153,6 +169,7 @@
 			        -webkit-background-clip: text;
 			        color: transparent;
 				}
+
 				>li:not(:nth-last-child(1)){
 					margin-right: 50px;
 				}
