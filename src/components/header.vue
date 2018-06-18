@@ -44,46 +44,63 @@
 		methods:{
 			search(id){
 				this.navActive = id
-				if(id == 0){
-					if(this.$router.name = 'index'){
-							document.documentElement.scrollTop  = 0
-							return
+				if(this.$route.name == 'index'){
+					if(id == 0){
+						if(this.$router.name = 'index'){
+								document.documentElement.scrollTop  = 0
+								return
+
+						}
+						this.$router.push('/index')
 
 					}
+					if(id == 1){
+						document.documentElement.scrollTop  = document.documentElement.offsetHeight
+				this.navActive = id
+
+					}
+					if(id == 2){
+						document.documentElement.scrollTop  = document.documentElement.offsetHeight + 828+547 
+				this.navActive = id
+
+
+					}
+					if(id == 3){
+						document.documentElement.scrollTop  = document.documentElement.offsetHeight*3  +250+ 828 +547
+				this.navActive = id
+
+
+						// this.$router.push('/zixun')
+					}
+					if(id == 4){
+						document.documentElement.scrollTop  = document.documentElement.offsetHeight*4 +250 + 828 +547
+				this.navActive = id
+
+
+					}
+					if(id == 5){
+						document.documentElement.scrollTop  = document.documentElement.offsetHeight*5 +250 + 828 +547
+				this.navActive = id
+
+
+					}
+				}else if(this.$route.name != 'index'){
 					this.$router.push('/index')
-
-				}
-				if(id == 1){
-					document.documentElement.scrollTop  = document.documentElement.offsetHeight
-				}
-				if(id == 2){
-					document.documentElement.scrollTop  = document.documentElement.offsetHeight + 828+547 
-
-				}
-				if(id == 3){
-					document.documentElement.scrollTop  = document.documentElement.offsetHeight*3  +250+ 828 +547
-
-					// this.$router.push('/zixun')
-				}
-				if(id == 4){
-					document.documentElement.scrollTop  = document.documentElement.offsetHeight*4 +250 + 828 +547
-
-				}
-				if(id == 5){
-					document.documentElement.scrollTop  = 6364
-
 				}
 			},
 			toIndex(){
 				this.$router.push('/index')
 			},
 			othercolor(id,e){
+				this.borderShow3 = id
 				console.log(e.target.parentNode.children)
 				for(let i of e.target.parentNode.children){
 					i.style.color = 'grey'
 				}
 				e.target.style.color = ''
 				document.getElementsByClassName('navActive')[0].style.color = ''
+				document.getElementsByClassName('navActive')[1].style.color = ''
+
 
 				this.borderShow3 = id 
 			},
@@ -93,8 +110,14 @@
 
 				for(let i of e.target.parentNode.children){
 					i.style.color = this.tex ? this.tex : ''
-				document.getElementsByClassName('navActive')[1].style.color = ''
-					
+					document.getElementsByClassName('navActive')[0].style.color = ''
+
+					if(this.$route.name == 'index'){
+						document.getElementsByClassName('navActive')[1].style.color = ''
+						document.getElementsByClassName('navActive')[0].style.color = ''
+					}
+				
+
 				}
 
 				
@@ -102,10 +125,38 @@
 			}
 		},
 		mounted(){
-
-			if(this.$route.name == 'zixun'){
+			if(this.$route.name != 'index'){
 				this.navActive = 3
 			}
+			setInterval(()=>{
+				if(this.$route.name == 'index'){
+					if(document.documentElement.scrollTop  <= document.documentElement.offsetHeight){
+					this.navActive = 0
+
+				}
+				if(document.documentElement.scrollTop  >= document.documentElement.offsetHeight){
+					this.navActive = 1
+				}
+				if(document.documentElement.scrollTop  >= document.documentElement.offsetHeight + 828+547 ){
+					this.navActive = 2
+
+				}
+				if(document.documentElement.scrollTop  >= document.documentElement.offsetHeight*3  +250+ 828 +547 ){
+					this.navActive = 3
+
+				}
+					if(document.documentElement.scrollTop  >= document.documentElement.offsetHeight*4 +250 + 828 +547 ){
+					this.navActive =4
+
+				}
+				if(document.documentElement.scrollTop  >= document.documentElement.offsetHeight*5 +250 + 828 +547){
+					this.navActive =5
+				}
+				}
+			},100)
+
+			
+
 		}
 	}
 </script>

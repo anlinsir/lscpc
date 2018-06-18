@@ -120,8 +120,8 @@
 			<div class="end">
 				<div class="quotes image"></div>
 
-				<div class="info">
-					<p class="icon" style="background-position: -1963px -753px;"></p>
+				<div class="info" :style="{left:EvS?EvS:''}">
+					<p class="icon"  style="background:url('/static/img/Group.png'); background-repeat: no-repeat;"></p>
 					<p class="terx">炉石星球项目团队由XLab基金会决策委员会组建，由多国成员组成。运营团队主要由保险公司高管、专注二手市场领域的投资人、 区块链资深专家以及二手市场行业资深程序员构成，核心团队成员在二手行业有超过十年以上、保险科技领域有着多年的经验和积累。并在美国运营有成熟的二手线上交易平台</p>
 				</div>
 
@@ -130,7 +130,7 @@
 			name="custom-classes-transition"
     enter-active-class="animated rollIn"
     leave-active-class="animated rollOut2">
-					<li v-if="infoac == id " @mousedown='add' @mousemove='add' @mouseup='add'  :key='id'   v-for='(ii,id) in proson'>
+					<li :style="{width:chS[0]?chS[0] : '' ,height:chS[1] ?chS[1] : '',paddingTop:chS[2]?chS[2]: '',paddingLeft:chS[3]? chS[3]: ''}" v-if="infoac == id " @mousedown='add' @mousemove='add' @mouseup='add'  :key='id'   v-for='(ii,id) in proson'>
 						<p style="margin-bottom: 35px;">
 							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + id}}</span><br>
 							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
@@ -144,7 +144,7 @@
 			name="custom-classes-transition"
     enter-active-class="animated rollIn"
     leave-active-class="animated  rollOut2"> 
-					<li v-if="Number(infoac)+1 == ids "  :key='ids'  style="margin-left: 55%;"  @mousedown='add' @mousemove='add' @mouseup='add' v-for='(ii,ids) in proson'>
+					<li :style="{width:chS[0]?chS[0] : '' ,height:chS[1] ?chS[1] : '',paddingTop:chS[2]?chS[2]: '',paddingLeft:chS[3]? chS[3]: ''}" v-if="Number(infoac)+1 == ids "  :key='ids'  style="margin-left: 55%;"  @mousedown='add' @mousemove='add' @mouseup='add' v-for='(ii,ids) in proson'>
 						<p style="margin-bottom: 35px;">
 							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + ids}}</span><br>
 							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
@@ -184,6 +184,8 @@
 		},
 		data(){
 			return({
+				EvS:'',
+				chS:[],
 				introduceList:[
 						{
 							title:'二手交易巨大的市场空间',
@@ -391,10 +393,15 @@
 				this.bpptiS = '3%'
 				this.strSb = '5%'
 				this.linS = '-10%'
+				this.EvS = '10%'
+				this.chS[0] = '50%'
+				this.chS[1] = '50%'
+				this.chS[2] = '10px'
+				this.chS[3] = '10px'
 			}
 			window.onscroll = (e)=> {
+				console.log('ghjk')
 				 window.event.returnValue = false 
-				 e.preventDefault()
 				this.alert = 0
 			
 				if(document.documentElement.scrollTop >=document.documentElement.offsetHeight){
@@ -987,6 +994,7 @@
 					li{
 						width: 474px;
 						height: 300px;
+						
 						background-color: #fff;
 						border-radius: 8px;
 						padding-right: 20px;
