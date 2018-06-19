@@ -9,10 +9,10 @@
 					<p style="font-size: 22px;color: #9883F1;letter-spacing: 0.42px;margin-bottom: 10px;">https://t.me/lsstar</p>
 					<p style="font-size: 14px;color: #9CA8CA;letter-spacing: 0.27px;margin-bottom: 40px;">点击电报链接即可进群</p>
 					<p style="font-size: 20px;color: #FFFFFF;letter-spacing: 0.38px;margin-bottom: 20px;">联系我们</p>
-					<p style="font-size: 18px;color: #9CA8CA;letter-spacing: 0.63px;">官方邮箱：lsc@lsc.com</p>
+					<p style="font-size: 18px;color: #9CA8CA;letter-spacing: 0.63px;">官方邮箱： <a style="color: #9CA8CA;"  href="mailto:shxiao918@gmail.com">shxiao918@gmail.com</a>	</p>
 				</div>	
 				<div class="erwei lh">
-					<p style="font-size: 20px;letter-spacing: 0.38px;color: #fff;margin-bottom: 20px;">微信公众号</p>
+					<p style="font-size: 20px;letter-spacing: 0.38px;color: #fff;margin-bottom: 20px;">微信联系</p>
 					<p style="width: 155px;height: 148px;margin-bottom: 10px;"><img style="width: 100%;height: 100%;" src="/static/img/e.png"></p>
 					<p style="font-size: 14px;color: #9CA8CA;letter-spacing: 1.37px;">扫码添加客服微信进群</p>
 				</div>

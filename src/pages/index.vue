@@ -2,16 +2,35 @@
 	<div class="Warp">
 		<Head  />
 
-		<Head  v-show='ernav' :color='color' :po='po'  :tex='tex' :bs='bs'/>
+		<Head  :id='heade11' v-show='ernav' :color='color' :po='po'  :tex='tex' :bs='bs'/>
 
 		<div class="indexWarp">
+			<vue-particles
+        color="#dedede"
+        :particleOpacity="0.7"
+        :particlesNumber="50"
+        shapeType="circle"
+        :particleSize="4"
+        linesColor="#dedede"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="repulsepp"
+        :clickEffect="true"
+        clickMode="bubble"
+        class='dsds4'
+      >
+      </vue-particles>
 			<div class="index">
 				<span style="width: 77px;
     height: 109px;" class="logoImg icon" ></span><br>
 				<span style="    background-position: -235px -192px;" class="logoText icon" ></span><br>
 				<span class="text">去中心化的二手交易区块链创新生态系统</span><br>
 				<button @click='download' class="ibtn image down"></button>
-				<button class="ibtn image  book"></button>	
+				<button @click='baipi' class="ibtn image  book"></button>	
 
 
 			<transition
@@ -44,24 +63,43 @@
 		<div class="wasWarp">
 			<div class="was">
 				<span class="title lh icon"></span>
-				<span class="more lh ">炉石星球是由美国XLab基金会(非营利性)发起的针对全球的去中心化二手交易区块链生态系统平台。 我们的定位，是提供二手行业商业级的区块链基础设施服务。一方面打造企业级区块链基础平台，另一方面在其上构建高扩展性的应用业务支撑系统。 其中，最底层的就是我们专注于保险行业的公有区块链炉石星球。 将现实的二手交易世界映射到区块链上。 通过跨平台、跨企业、跨行业、跨国界的互联协作，创造全新的商业模式，为协作参与方提供信任服务</span>
+				<span class="more lh ">炉石星球是由美国硅谷开发团队针对全球去中心化二手交易区块链生态系统平台，我们为二手行业提供商业级的区块链基础设施服务，在打造区块链基础平台的同时，我们折受构建高扩展性的应用业务支撑系统。炉石星球将现实的二手交易世界映射到区块链上，通过跨平台、跨企业、跨行业、跨国界的互联协作。创造全新的商业模式，为各方参与方提供可信的区块链服务。</span>
 			</div>
 		</div>
 
 		<div class="proWarp">
+			<vue-particles
+        color="#dedede"
+        :particleOpacity="0.7"
+        :particlesNumber="50"
+        shapeType="circle"
+        :particleSize="4"
+        linesColor="#dedede"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="repulse"
+        :clickEffect="true"
+        clickMode="bubble"
+        class='sndjl'
+      >
+      </vue-particles>
 			<div class="pro">
-				<span class="lh icon title"></span><br>
+				<span class="lh icon title"></span>
 				<span class="lh image IIMg"></span>
+				<span class="lh line"></span>
 			</div>
-				<span :style="{bottom:linS ?linS : ''}" class="lh line"></span>
-
 		</div>
 
 		<div class="appWarp">
+			<div class="str" ></div>
 			<div class="san"></div>	
 			<div class="app">
-				<div  class="bpp lh" :style="{width:bppS?bppS:'',}">
-					<p :style="{marginBottom:bpptiS?bpptiS : '',marginTop:bpptiS?bpptiS : ''}" class="lh title icon"></p>
+				<div class="bpp lh">
+					<p class="lh title icon"></p>
 					<ul>
 						<li v-for='(item,index) in bpp'>
 							<p class="lh image" :class=" 'ulImg'+ index"></p>
@@ -71,24 +109,21 @@
 					
 				</div>	
 			</div>		
-					<div :style="{bottom:strSb?strSb:'15%'}" class="str"></div>	
+					<div class="str"></div>	
 		</div>
 
 		<div class="ecologyWarp">
 			<div class="ecology">
 				<p class="lh icon title"></p><br>	
-				<p class="lh more">鼓励全球区块链爱好者和保险行业的开发者投入到炉石星球生态建设中，基于炉石星球开发更多优秀的应用及场景方案
-						所有用户可以在炉石星球提出二手交易需求或设计细分二手交易产品
-						第三方公司可以在炉石星球为用户提供服务
-						商家可以在炉石星球发布产品并使用我们基于区块链的底层技术服务</p>
+				<p class="lh more">鼓励全球区块链爱好者和开发者投入到炉石星球生态建设中来，基于炉石星球开发更多优秀的应用及场景方案，所有用户均可在炉石星球提出二手交易细分场景的产品，第三方公司均可与炉石星球进行数据链的深度合作，二手商家可在炉石星球发布产品并使用我们提供的区块链底层技术服务。</p>
 			</div>
 		</div>
 
 		<div class="informationWarp">
 			<div class="information">
 				<p class="lh title icon"></p>
-				<ul :style="{marginBottom:infoUls?infoUls : '' }">
-					<li :style="{width:inilli[0]?inilli[0]:'',height:inilli[1] ? inilli[1] :'' }" @click='todeta(id)' v-for='(ii,id) in 3'>
+				<ul>
+					<li @click='todeta(id)' v-for='(ii,id) in 3'>
 						<img src="/static/img/d81bca446095aa380f3b38c611f8e839688e5ca91429d-BGS6ii_fw658.jpeg">
 						<p class="titles">数据块链（PreICO）</p>
 						<p class="deta">DataBlockChain.io是一个革命性的数据平台，它打乱了公司和个人收集优质数据的方式。我们的产品将</p>
@@ -120,17 +155,18 @@
 			<div class="end">
 				<div class="quotes image"></div>
 
-				<div class="info" :style="{left:EvS?EvS:''}">
-					<p class="icon"  style="background:url('/static/img/Group.png'); background-repeat: no-repeat;"></p>
-					<p class="terx">炉石星球项目团队由XLab基金会决策委员会组建，由多国成员组成。运营团队主要由保险公司高管、专注二手市场领域的投资人、 区块链资深专家以及二手市场行业资深程序员构成，核心团队成员在二手行业有超过十年以上、保险科技领域有着多年的经验和积累。并在美国运营有成熟的二手线上交易平台</p>
+				<div class="info">
+					<p class="icon" style="background-position: -1963px -753px;"></p>
+					<p class="terx">炉石星球项目团队由美国硅谷开发团队组成。运营团队主要由二手交易领域高管、专注二手市场领域的投资人、 区块链资深专家以及二手市场行业资深程序员构成，核心团队成员在二手行业有超过十年以上经验和积累。并在美国运营有成熟的二手线上交易平台，并拥有大量用户数量。</p>
 				</div>
 
 				<ul class="chnegyuan">
-					<transition-group
+					<transition-group 
 			name="custom-classes-transition"
-    enter-active-class="animated rollIn"
-    leave-active-class="animated rollOut2">
-					<li :style="{width:chS[0]?chS[0] : '' ,height:chS[1] ?chS[1] : '',paddingTop:chS[2]?chS[2]: '',paddingLeft:chS[3]? chS[3]: ''}" v-if="infoac == id " @mousedown='add' @mousemove='add' @mouseup='add'  :key='id'   v-for='(ii,id) in proson'>
+    :enter-active-class="sss"
+    :leave-active-class="sss"
+    >
+					<li  v-if="infoac == id " @mousedown='add' @mousemove='add' @mouseup='add'  :key='id'   v-for='(ii,id) in proson'>
 						<p style="margin-bottom: 35px;">
 							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + id}}</span><br>
 							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
@@ -140,11 +176,11 @@
 					</li>
 				</transition-group>
 					<!-- <li class="sss" style="width:50%;height: 542px;position: absolute;right: 0;background:linear-gradient(-135deg, #3D486B 0%, #262F49 100%);	"></li>		 -->
-					<transition-group
+					<transition-group 
 			name="custom-classes-transition"
-    enter-active-class="animated rollIn"
-    leave-active-class="animated  rollOut2"> 
-					<li :style="{width:chS[0]?chS[0] : '' ,height:chS[1] ?chS[1] : '',paddingTop:chS[2]?chS[2]: '',paddingLeft:chS[3]? chS[3]: ''}" v-if="Number(infoac)+1 == ids "  :key='ids'  style="margin-left: 55%;"  @mousedown='add' @mousemove='add' @mouseup='add' v-for='(ii,ids) in proson'>
+   :enter-active-class="sss"
+    :leave-active-class="sss"> 
+					<li  v-if="Number(infoac)+1 == ids "  :key='ids'  style="margin-left: 55%;"  @mousedown='add' @mousemove='add' @mouseup='add' v-for='(ii,ids) in proson'>
 						<p style="margin-bottom: 35px;">
 							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + ids}}</span><br>
 							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
@@ -158,14 +194,16 @@
 				</ul>
 
 				<div class="pages">
-					<div class="lefts icon" @click='sub'></div>
-					<div class="rights icon" @click='addss' ></div>
+					<div class=" icon" :class="infoac == 0 ? 'leftss' : 'lefts'" @click='sub'></div>
+
+					<div class=" icon" :class="infoac >= 2 ? 'rightss' : 'rights'" @click='addss' ></div>
 
 				</div>
-				
+					
 
 			</div>
 		</div>
+
 		<Footer />
 	</div>
 </template>
@@ -173,7 +211,6 @@
 <script>
 	import Head from '../components/header'
 	import Footer from '../components/footer'
-
 
 		var alert = null;
 
@@ -184,8 +221,7 @@
 		},
 		data(){
 			return({
-				EvS:'',
-				chS:[],
+				sss:'animated bounceInLeft',
 				introduceList:[
 						{
 							title:'二手交易巨大的市场空间',
@@ -193,11 +229,11 @@
 						},
 						{
 							title:'二手市场面临的诸多问题',
-							text:'多层级中介，增加了无效成本。不透明的产品质量追溯过程，导致很多用户对二手物品的质量问题堪忧。产品鉴定和第三方托管极度缺乏公信力。'
+							text:'多层级中介，增加了诸多无效成本，不透明的产品质量溯源过程，导致很多用户对二手物品的质量问题堪忧，产品鉴定和第三方托管极度缺乏公信力，产品售后服务方面无法有效为用户提供应用的保障'
 						},
 						{
 							title:'区块链为二手交易带来的革新',
-							text:"区块链具有公共可查询、不可篡改、不可伪造等特点，区块链的智能合约与二手市场天然契合，区块链技术必然成为二手市场下一个发展阶段的底层技术"
+							text:"区块链具有公共可查询、不可篡改、不可伪造、质量溯源等特点。区块链的智能合约与二手市场天然的契合，区块链技术必然成为二手市场下一个发展阶段的底层技术。"
 						}
 					],
 				bpp:[
@@ -289,19 +325,20 @@
 				flag:null,
 				x:null,
 				y:null,
-				bppS:'',
-				infoUls:'',
-				inilli:[],
-				bpptiS:'',
-				strSb:'',
-				linS:''
+				lefts:'leftss',
+				rights:'rights',
+				heade11:'heade11',
 
-			})
+				
+				})
 		},
 		methods:{
 			download(){
 				this.alert = true
 				alert = true
+			},
+			baipi(){
+				window.alert('编写中，即将开放下载')
 			},
 			co(){
 				this.alert = 0
@@ -368,6 +405,7 @@
 
 			},
 			addss(){
+				this.sss = 'animated bounceInLeft'
 				if(this.infoac>=2){
 					this.infoac = 2
 					return
@@ -375,6 +413,7 @@
 				this.infoac += 1
 			},
 			sub(){
+				this.sss = 'animated bounceInRight'
 				if(this.infoac == 0){
 						this.infoac = 0
 						return
@@ -385,30 +424,20 @@
 			}
 		},
 		mounted(){
-			if(document.documentElement.offsetWidth < 1400){
-				this.bppS = '100%'
-				this.infoUls = '-4%'
-				this.inilli[0] = '30%'
-				this.inilli[1] = '80%'
-				this.bpptiS = '3%'
-				this.strSb = '5%'
-				this.linS = '-10%'
-				this.EvS = '10%'
-				this.chS[0] = '50%'
-				this.chS[1] = '50%'
-				this.chS[2] = '10px'
-				this.chS[3] = '10px'
-			}
-			window.onscroll = (e)=> {
-				console.log('ghjk')
-				 window.event.returnValue = false 
+			window.onscroll = (event)=> {
+				 var event = event ? event : window.event;
+   				console.log(event);
+				event.returnValue = false 
 				this.alert = 0
-			
+				
 				if(document.documentElement.scrollTop >=document.documentElement.offsetHeight){
 					this.ernav = true
-
+					console.log('dsdsds')
+					heade11.style.display = 'block'
 				}else{
 					this.ernav = false
+					heade11.style.display = 'none'
+
 
 				}
 			}
@@ -418,7 +447,12 @@
 
 
 <style scoped lang="scss">
-
+.dsds4{
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+}
 	.Warp{
 		width: 100%;
 		height: 100%;
@@ -428,6 +462,7 @@
 			height: 100%;			
 			background-color: #000;
 			background-image: url('/static/img/indexbg.jpg');
+			background-position: center center; 
 			>.index{
 				width: 1200px;
 				height: 100%;
@@ -436,7 +471,7 @@
 				position: relative;
 				z-index: 3;
 				text-align: center;
-				padding-top: 13%;
+				padding-top: 15%;
 				color: #fff;
 				>.alert{
 					position: absolute;top: 130px;
@@ -528,7 +563,6 @@
 						>.text{
 							font-size: 14px;
 							color: #9CA8CA;
-							letter-spacing: 0.3px;
 							line-height: 30px;
 						}
 						>.icon{
@@ -589,34 +623,32 @@
 			position: relative;
 			z-index: 5;
 			background-image: linear-gradient(-179deg, #3D486B 0%, #262F49 100%);
-			>.line{
-				width: 3px;
-				height: 58px;
-				border-left:2px dashed #9883F1;
-				position: absolute;
-				bottom: 20%;
-				left: 50%;
-			}
 			>.pro{
 				width: 1200px;
 				height: 100%;
 				margin: auto;
-				padding-top: 5%;
+				padding-top: 100px;
 				text-align: center;
-				overflow: hidden;
 				>.title{
 					width: 441px;
 					height: 67px;
 					background-position: -939px -579px;
-					margin-bottom: 1%;
+					margin-bottom: 100px;
 				}
 				>.IIMg{
-				    width: 70%;
-					background-size: 170%;
-					height:610px;
-					background-position: -300px -81px;
+				    width: 800px;
+					background-size: 188%;
+					height: 610px;
+					background-position: -365px -98px;
 				}
-				
+				>.line{
+					width: 3px;
+					height: 58px;
+					border-left:2px dashed #9883F1;
+					position: absolute;
+					left: 50%;
+					bottom: 5%;
+				}
 			}
 		}
 		>.appWarp{
@@ -638,33 +670,29 @@
 			>.app{
 				width: 1200px;				
 				margin: auto;
-				height: 100%;
 				text-align: center;
 				position: absolute;top: 100px;
 				left: 30%;
 				transform: translateX(-25%);
 				>.bpp{	
-					width: 1400px ;
-					height: 60%;
-					box-shadow:0px -8px 55px 0 rgba(58, 69, 104, 0.3);
-					transform: translateX(0%);
-					padding-bottom: 5%;
+					width: 1400px;
+					height: 620px;
+						box-shadow:0px -8px 55px 0 rgba(58, 69, 104, 0.3);
+
 					background-color: #fff;
 					>.title{
 						width: 440px;
 						height: 67px;
-						margin-bottom: 10%;
+						margin-bottom: 8%;
 						background-position: -41px -753px;
-						margin-top: 8%;
+						margin-top: 120px;
 					}
 					>ul{
 						width: 100%;
 						height: 213px;
 						padding: 0 100px;
-						display: flex;
-						justify-content: space-between;
 						>li:not(:nth-last-child(1)){
-
+							margin-right: 180px;
 						}
 						>li{
 							width: 150px;
@@ -705,7 +733,8 @@
 				height:58px;
 				border-left: 2px dashed  #9883F1;
 				position: absolute;
-				background-color: transparent;
+				bottom: 100px;
+				background-color: 	transparent;
 				left: 	50%;
 			}
 		}
@@ -743,20 +772,20 @@
 				width: 	1200px;
 				height: 100%;
 				margin: auto;
-				padding-top:3%;
+				padding-top: 7%;
 				text-align: center;
 				>.title{
 					width: 	196px;
 					height: 67px;
 					background-position: -1004px -753px;
-					margin-bottom:3%;
+					margin-bottom: 7%;
 				}
 				>ul{
 					width: 	100%;
 					display: flex;
 					justify-content: space-between;
 					height: 473px;
-					margin-bottom: 10%;
+					margin-bottom: 81px;
 					>li:hover{
 						transform: scale(1.04);
 					}
@@ -767,23 +796,24 @@
 						background-color: #fff;
 						padding-top: 20px;
 						transition: .5s all;
-						padding: 1% 1%;
 						box-shadow: 0 8px 22px 0 rgba(177, 191, 230, 0.4);
 
 						>img{
-							width: 	100%;
-							height: 50%;
-							margin-bottom: 3%;
+							width: 	330px;
+							height: 223px;
+							margin-bottom: 30px;
 						}
 						>.titles{
 							text-align: left;
+							padding:0 20px;
 							font-size: 20px;
 							color: #1C243A;
 							letter-spacing: 0.38px;
 							margin-bottom: 10px;
 						}
 						>.deta{
- 							font-size: 16px;
+							padding: 0 20px;
+							font-size: 16px;
 							text-align: left;
 							color: #9CA8CA;
 							letter-spacing: 0.3px;
@@ -846,18 +876,18 @@
 				width: 	1200px;
 				height: 100%;
 				margin: auto;
-				padding-top: 5%;
+				padding-top: 8%;
 				text-align: center;
 				>.title{
 					width: 	441px;
 					height: 67px;
 					background-position:-1380px -753px;
-					margin-bottom: 5%;
+					margin-bottom: 119px;
 				}
 				>.img{
-					width: 	346px;
+					width: 	360px;
 					height: 347px;
-					background-position: -90px -1542px;
+					background-position: -82px -1542px;
 					position: relative;
 					>.tesrs{
 						width: 115%;
@@ -935,7 +965,7 @@
 					height: 60px;
 					display: flex;
 					justify-content: space-between;
-					>.lefts,.rights{
+					>.lefts,.rights,.leftss,.rightss{
 						width: 60px;
 						height: 60px;
 						border-radius: 50%;
@@ -945,6 +975,16 @@
 						right: 25%;
 						background-position: -1510px -138px;
 					}
+					>.leftss{
+						right: 25%;
+
+						background-position: -1255px -138px;
+					}
+					>.rightss{
+						right: 20%;
+						background-position: -1636px -138px;
+					}
+
 					>.rights{
 						right: 20%;
 						background-position: -1383px -138px;
@@ -992,9 +1032,10 @@
 
 					}
 					li{
-						width: 474px;
-						height: 300px;
-						
+						width: 45%;
+						height: 55%;
+						/*width: 474px;
+						height: 300px;*/
 						background-color: #fff;
 						border-radius: 8px;
 						padding-right: 20px;

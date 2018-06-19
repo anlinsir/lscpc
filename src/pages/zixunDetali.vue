@@ -8,7 +8,7 @@
 					<span>最新资讯></span>
 					<span>易宣链去中心化数据交易所打造区块链价值生态</span>
 
-					<button>返回列表</button>
+					<button @click='tozixun'>返回列表</button>
 				</div>
 
 				<div class="content">
@@ -19,13 +19,16 @@
 							<span class="icon time lh " ></span><span>2018-03-19</span>
 
 						</p>
-						<p class="sga ab">
-							<span style="font-size: 14px;color: #9CA8CA;letter-spacing: 0;text-align: left;margin-right: 15px;" >分享</span>
-							<span class="icon c1 lh"></span>
-							<span class="icon c2 lh"></span>
+						<p  class="sga ab">
+							<span  style="font-size: 14px;color: #9CA8CA;letter-spacing: 0;text-align: left;margin-right: 15px;" >分享</span>
+							<share style="display:inline-block;" :config="config" >
+								 
+							</share>
+							<!-- <span @click='sh'  class="icon c1 lh social-share"></span>
+							<span class="icon c2 lh" ></span>
 							<span class="icon c3 lh"></span>
 							<span class="icon c4 lh"></span>
-							<span class="icon c5 lh"></span>
+							<span class="icon c5 lh"></span> -->
 
 						</p>
 
@@ -64,6 +67,8 @@
 <script>
 	import Head from '../components/header'
 	import Footer from '../components/footer'
+	import $ from 'jquery'
+
 	export default {
 		components:{
 			Head,Footer
@@ -75,10 +80,26 @@
 				tex:'#000',
 				ernav:false,
 				bs:'rgba(177, 191, 230) 0px -3px 22px 0px',
-				pagess:null
+				pagess:null,
+				config:{url: window.location.href, // 网址，默认使用 window.location.href  
+						source              : '', // 来源（QQ空间会用到）, 默认读取head标签：<meta name="site" content="http://overtrue" />  
+						title               : '', // 标题，默认读取 document.title 或者 <meta name="title" content="share.js" />  
+						description         : '', // 描述, 默认读取head标签：<meta name="description" content="PHP弱类型的实现原理分析" />  
+						image               : '', // 图片, 默认取网页中第一个img标签  
+						sites               : ['wechat', 'qq','qzone'], // 启用的站点  
+						 
+						wechatQrcodeTitle   : '微信扫一扫：分享', // 微信二维码提示文字  
+						wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'  }
 			})
 		},
 		methods:{
+			sh(e){
+				
+				
+			},
+			tozixun(){
+				this.$router.push('/zixun')
+			},
 			pres(){
 				this.pagess = Number(this.$route.params.id-1)
 				console.log(this.pagess)
@@ -105,11 +126,16 @@
 		mounted(){
 			this.pagess = Number(this.$route.params.id)
 			document.documentElement.scrollTop  = 0
+			console.log(this.$route)
 		}
 	}
 </script>
 
 <style scoped lang="scss">
+.icon-qzone{
+	 background:url('/static/img/icon.png') !important;
+	background-position: -586px -438px !important;
+}
 	.detaliWarp{
 		width: 100%;
 		min-height: 100%;

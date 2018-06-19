@@ -1,13 +1,13 @@
 <template>
-	<div :style="{background:color ? color : '',position: po ? po : '',boxShadow:bs ? bs : ''}" class="HeadWarp ">
+	<div :id='id' :style="{background:color ? color : '',position: po ? po : '',boxShadow:bs ? bs : ''}" class="HeadWarp ">
 		<div class="head">
 			<div @click='toIndex' class="leftIMg">
 				<span @click='toIndex' class="logo icon"></span>
 			</div>
 <!-- tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :'' -->
-			<ul class="rightUl">
+			<ul id='uull' @mouseenter='chengcoll' @mousemove='chengcoll'  @mouseleave='nochanj' class="rightUl">
 				<li   @mousemove='othercolor(index,$event)' @mouseleave='othercolors(index,$event)' :style="{color:tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :''}" v-on:click="search(index)" :class="navActive == index  ? 'navActive' : '' "  v-for='(item,index) in navList'>{{item}}
-					 <transition name="slide-fade"><div v-show='navActive == index || borderShow3 == index' class="border"></div></transition>
+					 <div v-show='navActive == index || borderShow3 == index' class="border"></div>
 				</li>
 			</ul>
 		</div>
@@ -30,6 +30,10 @@
 			bs:{
 				type:String
 
+			},
+			id:{
+				type:String
+				
 			}
 		},
 		data(){
@@ -91,11 +95,47 @@
 			toIndex(){
 				this.$router.push('/index')
 			},
+			chengcoll(e){				
+				for(let i of uull[0].children){
+					i.style.color = '#9CA8CA'
+				}
+				for(let i of uull[1].children){
+					i.style.color = '#9CA8CA'
+				}
+				e.target.style.color = ''
+				document.getElementsByClassName('navActive')[0].style.color = ''
+				document.getElementsByClassName('navActive')[1].style.color = ''
+			},
+			nochanj(e){
+				for(let i of  uull[0].children){
+					i.style.color = '#fff'
+					document.getElementsByClassName('navActive')[0].style.color = ''
+
+					if(this.$route.name == 'index'){
+						document.getElementsByClassName('navActive')[1].style.color = ''
+						document.getElementsByClassName('navActive')[0].style.color = ''
+					}
+				
+
+				}
+				for(let i of  uull[1].children){
+					i.style.color = '#000'
+					document.getElementsByClassName('navActive')[0].style.color = ''
+
+					if(this.$route.name == 'index'){
+						document.getElementsByClassName('navActive')[1].style.color = ''
+						document.getElementsByClassName('navActive')[0].style.color = ''
+					}
+				
+
+				}
+
+			},
 			othercolor(id,e){
 				this.borderShow3 = id
 				console.log(e.target.parentNode.children)
 				for(let i of e.target.parentNode.children){
-					i.style.color = 'grey'
+					i.style.color = '#9CA8CA'
 				}
 				e.target.style.color = ''
 				document.getElementsByClassName('navActive')[0].style.color = ''
@@ -132,6 +172,8 @@
 				if(this.$route.name == 'index'){
 					if(document.documentElement.scrollTop  <= document.documentElement.offsetHeight){
 					this.navActive = 0
+					document.getElementsByClassName('navActive')[0].style.color = ''
+
 
 				}
 				if(document.documentElement.scrollTop  >= document.documentElement.offsetHeight){
@@ -215,6 +257,20 @@
 			        color: transparent;
 			     
 				}
+				>.navActive:after{
+					  content: ' ';
+					    position: absolute;
+					    z-index: 2;
+					    bottom: 0;
+					    left: 50%;
+					    display: block;
+					    width: 100%;
+					    height: 1px;
+					    transform: translate(-50%); height: 2px;
+   					 animation: ad_width .1s linear forwards;
+   					 background: linear-gradient(to right, #9883F1 5%, #FC77B1 95%);
+				}
+
 				>li:hover{
 					background: linear-gradient(to right,  #9883F1 5%, #FC77B1 95%);
 			        -webkit-background-clip: text;
@@ -230,14 +286,33 @@
 					float: left;
 					position: relative;
 					cursor: pointer;
-					>.border{
-						position: absolute;
-						bottom: 0;
-						width: 100%;
-						height: 2px;
-					background: linear-gradient( #9883F1 20%, #FC77B1 80%);
+					
+				}
 
-					}
+				>li:after{
+					    content: ' ';
+					    position: absolute;
+					    z-index: 2;
+					    bottom: 0;
+					    left: 50%;
+					    display: block;
+					    width: 100%;
+					    height: 1px;
+					    transform: translate(-50%);
+				}
+				>li:hover:after{
+					 height: 2px;
+   					 animation: ad_width .2s linear forwards;
+   					 background: linear-gradient(to right, #9883F1 5%, #FC77B1 95%);
+				}
+				@keyframes ad_width {
+				    from {
+				        width: 0
+				    }
+
+				    to {
+				         width: 100%;
+				    }
 				}
 			}
 		}

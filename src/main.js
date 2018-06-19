@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Share from 'vue-social-share'  
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
+Vue.use(Share)  
 
 Vue.config.productionTip = false
 
