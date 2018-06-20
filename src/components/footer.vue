@@ -13,7 +13,7 @@
 				</div>	
 				<div class="erwei lh">
 					<p style="font-size: 20px;letter-spacing: 0.38px;color: #fff;margin-bottom: 20px;">微信联系</p>
-					<p style="width: 155px;height: 148px;margin-bottom: 10px;"><img style="width: 100%;height: 100%;" src="/static/img/e.png"></p>
+					<p style="width: 155px;height: 148px;margin-bottom: 10px;"><img style="width: 100%;height: 100%;" src="/static/img/erwei.png"></p>
 					<p style="font-size: 14px;color: #9CA8CA;letter-spacing: 1.37px;">扫码添加客服微信进群</p>
 				</div>
 			</div>

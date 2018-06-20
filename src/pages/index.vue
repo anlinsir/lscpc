@@ -8,7 +8,7 @@
 			<vue-particles
         color="#dedede"
         :particleOpacity="0.7"
-        :particlesNumber="50"
+        :particlesNumber="40"
         shapeType="circle"
         :particleSize="4"
         linesColor="#dedede"
@@ -16,7 +16,7 @@
         :lineLinked="true"
         :lineOpacity="0.4"
         :linesDistance="150"
-        :moveSpeed="3"
+       	:moveSpeed='moveSpeed'
         :hoverEffect="true"
         hoverMode="repulsepp"
         :clickEffect="true"
@@ -24,7 +24,7 @@
         class='dsds4'
       >
       </vue-particles>
-			<div class="index">
+			
 				<span style="width: 77px;
     height: 109px;" class="logoImg icon" ></span><br>
 				<span style="    background-position: -235px -192px;" class="logoText icon" ></span><br>
@@ -40,10 +40,10 @@
 					<div v-if='alert' class="alert">
 							<span  @click='co' style="position: absolute;right: 20px;top:20px;"><img src="/static/img/close.png"></span>
 							<p class="lh" style="font-size: 20px;color: #1C243A;letter-spacing: 0;margin-top: 50px;">扫描二维码 下载APP</p><br>
-							<p class="lh" style="width: 221px;height: 228px;margin-top:20px;"><img style="width: 100%;height: 100%;" src="/static/img/e.png"></p>
+							<p class="lh" style="width: 221px;height: 228px;margin-top:20px;"><img style="width: 100%;height: 100%;" src="http://52.80.194.182:8886/img/down-qrcode.png?v=2"></p>
 						</div>
 			</transition>
-			</div>
+			
 		</div>
 
 		<div class="erWarp">
@@ -63,30 +63,12 @@
 		<div class="wasWarp">
 			<div class="was">
 				<span class="title lh icon"></span>
-				<span class="more lh ">炉石星球是由美国硅谷开发团队针对全球去中心化二手交易区块链生态系统平台，我们为二手行业提供商业级的区块链基础设施服务，在打造区块链基础平台的同时，我们折受构建高扩展性的应用业务支撑系统。炉石星球将现实的二手交易世界映射到区块链上，通过跨平台、跨企业、跨行业、跨国界的互联协作。创造全新的商业模式，为各方参与方提供可信的区块链服务。</span>
+				<span class="more lh ">炉石星球是由美国硅谷开发团队针对全球去中心化二手交易区块链生态系统平台，我们为二手行业提供商业级的区块链基础设施服务，在打造区块链基础平台的同时，我们折受构建高扩展性的应用业务支撑系统。<br />炉石星球将现实的二手交易世界映射到区块链上，通过跨平台、跨企业、跨行业、跨国界的互联协作<br />创造全新的商业模式，为各方参与方提供可信的区块链服务。</span>
 			</div>
 		</div>
 
 		<div class="proWarp">
-			<vue-particles
-        color="#dedede"
-        :particleOpacity="0.7"
-        :particlesNumber="50"
-        shapeType="circle"
-        :particleSize="4"
-        linesColor="#dedede"
-        :linesWidth="1"
-        :lineLinked="true"
-        :lineOpacity="0.4"
-        :linesDistance="150"
-        :moveSpeed="3"
-        :hoverEffect="true"
-        hoverMode="repulse"
-        :clickEffect="true"
-        clickMode="bubble"
-        class='sndjl'
-      >
-      </vue-particles>
+			
 			<div class="pro">
 				<span class="lh icon title"></span>
 				<span class="lh image IIMg"></span>
@@ -127,7 +109,7 @@
 						<img src="/static/img/d81bca446095aa380f3b38c611f8e839688e5ca91429d-BGS6ii_fw658.jpeg">
 						<p class="titles">数据块链（PreICO）</p>
 						<p class="deta">DataBlockChain.io是一个革命性的数据平台，它打乱了公司和个人收集优质数据的方式。我们的产品将</p>
-						<p class="moew">查看更多 →</p>
+						<p :style="{backgroundImage:mozColor? mozColor :'',transform:mozTrs ? mozTrs : 'translateX(-123px)'}" class="moew">查看更多 →</p>
 					</li>
 					
 				</ul>
@@ -170,7 +152,7 @@
 						<p style="margin-bottom: 35px;">
 							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + id}}</span><br>
 							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
-							<img style="float: right;width: 100px;height: 100px;border-radius: 50%;border:1px solid;transform: translateY(-60px);" src="#">
+							<img style="float: right;width: 100px;height: 100px;border-radius: 50%;border:1px solid;transform: translateY(-60px);background-color: #334;" src="">
 						</p>
 						<span style="font-size: 16px;color: #9CA8CA;letter-spacing: 0;line-height: 30px;margin-bottom: 1%" v-for="(i,d) in ii.span">{{i}}<br></span>
 					</li>
@@ -184,7 +166,7 @@
 						<p style="margin-bottom: 35px;">
 							<span style="font-size: 48px;color: #9883F1;letter-spacing: 0;">{{ii.name + ids}}</span><br>
 							<span style="font-size: 16px;color: #1C243A;letter-spacing: 0;">{{ii.p}}</span>
-							<img style="float: right;width: 100px;height: 100px;border-radius: 50%;border:1px solid;transform: translateY(-60px);" src="#">
+							<img style="float: right;width: 100px;height: 100px;border-radius: 50%;border:1px solid;transform: translateY(-60px);background-color: #334;" src="">
 						</p>
 						<span style="font-size: 16px;color: #9CA8CA;letter-spacing: 0;line-height: 30px;margin-bottom: 1%" v-for="(i,d) in ii.span">{{i}}<br></span>
 					</li>
@@ -221,15 +203,18 @@
 		},
 		data(){
 			return({
+				mozTrs:'',
+				mozColor:'',
+				moveSpeed:8,
 				sss:'animated bounceInLeft',
 				introduceList:[
 						{
 							title:'二手交易巨大的市场空间',
-							text:'二手交易按分类可分为大宗商品与个人闲置。大宗商品如二手车、二手房、二手3C类等物品。每年各行业的二手交易数据都成几何式增加，互联网巨头公司也纷纷涉足二手交易，市场空间巨大。'
+							text:'二手交易按分类可分为大众商品与个人闲置。大众商品如二手车、二手房、二手3C类等物品。每年各行业的二手交易数据都成几何式增加，互联网巨头公司也纷纷涉足二手交易，市场空间巨大。'
 						},
 						{
 							title:'二手市场面临的诸多问题',
-							text:'多层级中介，增加了诸多无效成本，不透明的产品质量溯源过程，导致很多用户对二手物品的质量问题堪忧，产品鉴定和第三方托管极度缺乏公信力，产品售后服务方面无法有效为用户提供应用的保障'
+							text:'多层级中介，增加了诸多无效成本，不透明的产品质量溯源过程，导致很多用户对二手物品的质量问题堪忧，产品鉴定和第三方托管极度缺乏公信力，产品售后服务方面无法有效为用户提供应用的保障。'
 						},
 						{
 							title:'区块链为二手交易带来的革新',
@@ -253,7 +238,7 @@
 				line:[
 					{
 						title:'第一阶段（2015.5-2017.9）',
-						detali:'团队进行了深入的行业调研，走访了数十个国家和地区，拜访了数百家二手商家和科技公司，并在全球发布了数个非常有影响力的行业报告，在二手行业上下游进行了投资。 区块链和二手行业结合进入提案和探讨。'
+						detali:'团队进行了深入的行业调研，走访了数十个国家和地区，拜访了数百家二手商家和科技公司，并在全球发布了数个非常有影响力的行业报告，在二手行业上下又进行了投资。 区块链和二手行业结合进入提案和探讨。'
 					},
 					{
 						title:'第二阶段（2017.9-2017.12）',
@@ -373,7 +358,7 @@
 											return
 
 									}
-										this.infoac-= 1
+										this.infoac-= 2
 									return
 								}
 								if(this.x<this.y && this.y - this.x >=80){
@@ -382,7 +367,7 @@
 										this.infoac = 2
 											return
 									}
-									this.infoac += 1
+									this.infoac += 2
 									return
 								}
 								if(this.x == this.y){
@@ -401,7 +386,7 @@
 					this.infoac = 2
 					return
 				}
-				this.infoac += 1
+				this.infoac += 2
 
 			},
 			addss(){
@@ -410,7 +395,7 @@
 					this.infoac = 2
 					return
 				}
-				this.infoac += 1
+				this.infoac += 2
 			},
 			sub(){
 				this.sss = 'animated bounceInRight'
@@ -419,11 +404,15 @@
 						return
 
 				}
-				this.infoac-= 1
+				this.infoac-= 2
 
 			}
 		},
 		mounted(){
+			if(navigator.userAgent.indexOf('Firefox') != -1){
+				this.mozColor = '-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(152, 131, 241, 1)), to(rgba(252,119,177, 1)))'
+				this.mozTrs = 'translateX(-85px)'
+			}
 			window.onscroll = (event)=> {
 				 var event = event ? event : window.event;
    				console.log(event);
@@ -463,15 +452,12 @@
 			background-color: #000;
 			background-image: url('/static/img/indexbg.jpg');
 			background-position: center center; 
-			>.index{
-				width: 1200px;
-				height: 100%;
+				padding-top: 15%;		
 
-				margin: auto;
+			
 				position: relative;
 				z-index: 3;
 				text-align: center;
-				padding-top: 15%;
 				color: #fff;
 				>.alert{
 					position: absolute;top: 130px;
@@ -481,6 +467,7 @@
 					right: 0;
 					margin: auto;
 					width: 572px;
+					z-index: 10;
 					height: 366px;
 					background-color: #fff;
 				}
@@ -513,17 +500,21 @@
 				}	
 				>.down{
 					background-position:1063px  -2434px;
-					margin-right: 100px;					
+					margin-right: 100px;
+					position: relative;
+					z-index: 6;					
 				}
 				>.book{
-					background-position:722px  -2434px;					
+					background-position:722px  -2434px;		
+					position: relative;
+					z-index: 6;			
 				}
 				>.icon{
 					display:inline-block;
 					width: 	336px;
 					height:67px;
 				}
-			}
+			
 		}
 		>.erWarp{
 			width: 100%;
@@ -561,6 +552,7 @@
 							margin-bottom: 18px;
 						}
 						>.text{
+							width: 323px;
 							font-size: 14px;
 							color: #9CA8CA;
 							line-height: 30px;
@@ -639,7 +631,7 @@
 				    width: 800px;
 					background-size: 188%;
 					height: 610px;
-					background-position: -365px -98px;
+					background-position: -348px  -98px;
 				}
 				>.line{
 					width: 3px;
@@ -647,7 +639,7 @@
 					border-left:2px dashed #9883F1;
 					position: absolute;
 					left: 50%;
-					bottom: 5%;
+					bottom: 3%;
 				}
 			}
 		}
@@ -671,14 +663,15 @@
 				width: 1200px;				
 				margin: auto;
 				text-align: center;
-				position: absolute;top: 100px;
-				left: 30%;
-				transform: translateX(-25%);
+				position: absolute;
+				top: 100px;
+				left: -12%;
+				right: 0;
+				bottom: 0;
 				>.bpp{	
 					width: 1400px;
 					height: 620px;
-						box-shadow:0px -8px 55px 0 rgba(58, 69, 104, 0.3);
-
+					box-shadow:0px 7px 39px -4px rgba(177, 191, 230, 0.4);
 					background-color: #fff;
 					>.title{
 						width: 440px;
@@ -733,7 +726,7 @@
 				height:58px;
 				border-left: 2px dashed  #9883F1;
 				position: absolute;
-				bottom: 100px;
+				bottom:8%;
 				background-color: 	transparent;
 				left: 	50%;
 			}
@@ -772,7 +765,7 @@
 				width: 	1200px;
 				height: 100%;
 				margin: auto;
-				padding-top: 7%;
+				padding-top: 5%;
 				text-align: center;
 				>.title{
 					width: 	196px;
@@ -784,14 +777,16 @@
 					width: 	100%;
 					display: flex;
 					justify-content: space-between;
-					height: 473px;
-					margin-bottom: 81px;
+					height: 53%;
+					margin-bottom: 5%;
 					>li:hover{
 						transform: scale(1.04);
 					}
 					>li{
-						width: 	370px;
-						height: 473px;
+						border-radius: 8px;
+						padding-bottom: 5px;
+						width: 	30%;
+						height: 100%;
 						cursor: pointer;
 						background-color: #fff;
 						padding-top: 20px;
@@ -799,9 +794,11 @@
 						box-shadow: 0 8px 22px 0 rgba(177, 191, 230, 0.4);
 
 						>img{
+							border-radius: 8px;
+
 							width: 	330px;
 							height: 223px;
-							margin-bottom: 30px;
+							margin-bottom: 5%;
 						}
 						>.titles{
 							text-align: left;
@@ -821,11 +818,21 @@
 							margin-bottom: 20px;
 						}
 						>.moew{
-							background: linear-gradient(to right,  #9883F1 20%, #FC77B1 80%);
+							   display: inline-block;
+							    color: green;
+							    background-image: -webkit-gradient(linear, 80% 0, 0 0, from(rgba(252,119,177, 1)), to(rgba(152, 131, 241, 1)));
+							    -webkit-background-clip: text;
+							    -webkit-text-fill-color: transparent;
+							/*background: linear-gradient(to right,  #9883F1 20%, #FC77B1 80%);
 			        		-webkit-background-clip: text;
+
+			        		-moz-background-clip: text;
+			        		background-clip: text;
+			        		-webkit-text-fill-color: transparent;
+
 			        		color: transparent;
 			        		display:inline-block;
-			        		transform: translateX(-123px);
+			        		transform: translateX(-123px);*/
 
 
 						}
@@ -837,6 +844,7 @@
 					background-image: linear-gradient(-270deg, #FC77B1 0%, #9883F1 100%);
 					border-radius: 100px;
 					font-size: 24px;
+					outline: none;
 					color: #FFFFFF;
 					letter-spacing: 0.46px;
 					text-align: center;
@@ -890,7 +898,7 @@
 					background-position: -82px -1542px;
 					position: relative;
 					>.tesrs{
-						width: 115%;
+						width: 110%;
 						position: absolute;
 						>.title{
 							font-size: 16px;
@@ -905,7 +913,7 @@
 						}
 					}
 					>.texts0{
-						    top: 42%;
+						    top: 35%;
 						left: -120%;
 						>.title{
 							text-align: right;
@@ -915,7 +923,7 @@
 						}
 					}
 					>.texts1{
-						top:18%;
+						top:17%;
     					left: 100%;
 						>.title{
 							text-align: left;
@@ -925,7 +933,7 @@
 						}
 					}
 					>.texts2{
-						top: 75%;
+						top: 78%;
     					left: 100%;
 						>.title{
 							text-align: left;
@@ -935,8 +943,8 @@
 						}
 					}
 					>.texts3{
-						top: 110%;
-    					left:-30%;
+						top: 108%;
+    					left:-11%;
 						>.title{
 							text-align: center;
 						}
@@ -1028,12 +1036,13 @@
 
 					}
 					li:not(.sss){
-						box-shadow: 0 15px 21px 0 rgba(58,69,104,0.30);
+						box-shadow: 0 8px 22px 0 rgba(177, 191, 230, 0.4);
 
 					}
 					li{
 						width: 45%;
 						height: 55%;
+						
 						/*width: 474px;
 						height: 300px;*/
 						background-color: #fff;
@@ -1046,7 +1055,6 @@
 						top:25%;
 						padding-top: 26px;
 						transition: 0.5s all;
-						box-shadow: 0 15px 21px 0 rgba(58,69,104,0.30);
 
 					}
 				}

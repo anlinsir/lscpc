@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import Share from 'vue-social-share'  
 import VueParticles from 'vue-particles'
+// import 'babel-polyfill'
 Vue.use(VueParticles)
 Vue.use(Share)  
 

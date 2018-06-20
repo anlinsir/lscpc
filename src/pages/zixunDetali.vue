@@ -177,6 +177,7 @@
 					min-height: 500px;
 					border:1px solid #F4F6FA;
 					padding: 0 59px 0 58px;
+					margin-bottom:50px;
 					>.head{
 						width: 100%;
 						height: 143px;
@@ -265,6 +266,7 @@
 					>.pages{
 						width: 100%;
 						height: 30px;
+						margin-bottom:100px;
 
 						>.pre{
 							float: left;

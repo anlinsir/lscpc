@@ -3,7 +3,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -24,6 +23,17 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+//   entry: { 
+// app: ["babel-polyfill", "./src/main.js"] 
+// } ,
+ // entry: ["babel-polyfill", "./src/main.js"],
+//  entry: {
+
+//     // "babel-polyfill"用来解决的兼容性
+
+//     app: ['./node_modules/babel-polyfill/dist/polyfill.js','./src/main.js']
+
+// }
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
