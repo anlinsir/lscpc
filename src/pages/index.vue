@@ -4,7 +4,7 @@
 
 		<Head  :id='heade11' v-show='ernav' :color='color' :po='po'  :tex='tex' :bs='bs'/>
 
-		<div class="indexWarp">
+		<div :style="{paddingTop:SSTOP?SSTOP:''}" class="indexWarp">
 			<vue-particles
 		        color="#dedede"
 		        :particleOpacity="0.7"
@@ -206,6 +206,7 @@
 		},
 		data(){
 			return({
+				SSTOP:'',
 				SSInfo:[],
 				SSMap:[],
 				SSApp:[],
@@ -417,7 +418,7 @@
 		},
 		mounted(){
 			if(document.documentElement.offsetWidth < 1400){
-				
+				console.log('dsd')
 				this.SSWidth[0] = '70%'
 				this.SSWidth[1] = '80%'
 				this.SSWidth[2] = '150%'
@@ -436,6 +437,8 @@
 
 				this.SSInfo[0] = '5%'
 				this.SSInfo[1] = '3%'
+
+				this.SSTOP = '12%'
 
 
 
@@ -464,14 +467,14 @@
 				this.mozTrs = 'translateX(-85px)'
 			}
 			window.onscroll = (event)=> {
+
 				 var event = event ? event : window.event;
-   				console.log(event);
+   				
 				event.returnValue = false 
 				this.alert = 0
-				
-				if(document.documentElement.scrollTop >=document.documentElement.offsetHeight){
+				if(document.documentElement.scrollTop >=document.documentElement.offsetHeight || document.body.scrollTop >=document.documentElement.offsetHeight){
 					this.ernav = true
-					console.log('dsdsds')
+					
 					heade11.style.display = 'block'
 				}else{
 					this.ernav = false

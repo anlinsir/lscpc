@@ -6,7 +6,7 @@
 			</div>
 <!-- tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :'' -->
 			<ul id='uull' @mouseenter='chengcoll' @mousemove='chengcoll'  @mouseleave='nochanj' class="rightUl">
-				<li   @mousemove='othercolor(index,$event)' @mouseleave='othercolors(index,$event)' :style="{color:tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :''}" v-on:click="search(index)" :class="navActive == index  ? 'navActive' : '' "  v-for='(item,index) in navList'>{{item}}
+				<li   @mousemove='othercolor(index,$event)' @mouseleave='othercolors(index,$event)' :style="{color:tex ? navActive != index ? borderShow3==index ? '' :   tex : ''  :''}" v-on:click="search(index,$event)" :class="navActive == index  ? 'navActive' : '' "  v-for='(item,index) in navList'>{{item}}
 					 <div v-show='navActive == index || borderShow3 == index' class="border"></div>
 				</li>
 			</ul>
@@ -46,12 +46,26 @@
 			})
 		},
 		methods:{
-			search(id){
+			search(id,e){
+
+				// console.log(uull[0].children[id])
+				// for(let i of uull[0].children){
+				// 	i.style.className = ''
+				// }
+				// for(let i of uull[1].children){
+				// 	i.style.className = ''
+				// }
+				// uull[0].children[id].className = 'navActive'
+				// uull[1].children[id].className = 'navActive'
+
+				
+
 				this.navActive = id
 				if(this.$route.name == 'index'){
 					if(id == 0){
 						if(this.$router.name = 'index'){
 								document.documentElement.scrollTop  = 0
+								document.body.scrollTop  = 0
 								return
 
 						}
@@ -60,17 +74,23 @@
 					}
 					if(id == 1){
 						document.documentElement.scrollTop  = document.documentElement.offsetHeight
+						document.body.scrollTop  = document.documentElement.offsetHeight
+
 				this.navActive = id
 
 					}
 					if(id == 2){
 						document.documentElement.scrollTop  = document.documentElement.offsetHeight + 828+547 
+						document.body.scrollTop = document.documentElement.offsetHeight + 828+547 
+
 				this.navActive = id
 
 
 					}
 					if(id == 3){
 						document.documentElement.scrollTop  = document.documentElement.offsetHeight*3  +250+ 828 +547
+						document.body.scrollTop  = document.documentElement.offsetHeight*3  +250+ 828 +547
+
 				this.navActive = id
 
 
@@ -78,12 +98,16 @@
 					}
 					if(id == 4){
 						document.documentElement.scrollTop  = document.documentElement.offsetHeight*4 +250 + 828 +547
+						document.body.scrollTop  = document.documentElement.offsetHeight*4 +250 + 828 +547
+
 				this.navActive = id
 
 
 					}
 					if(id == 5){
 						document.documentElement.scrollTop  = document.documentElement.offsetHeight*5 +250 + 828 +547
+						document.body.scrollTop  = document.documentElement.offsetHeight*5 +250 + 828 +547
+
 				this.navActive = id
 
 
@@ -133,7 +157,6 @@
 			},
 			othercolor(id,e){
 				this.borderShow3 = id
-				console.log(e.target.parentNode.children)
 				for(let i of e.target.parentNode.children){
 					i.style.color = '#9CA8CA'
 				}
