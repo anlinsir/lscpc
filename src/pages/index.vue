@@ -6,22 +6,22 @@
 
 		<div class="indexWarp">
 			<vue-particles
-        color="#dedede"
-        :particleOpacity="0.7"
-        :particlesNumber="40"
-        shapeType="circle"
-        :particleSize="4"
-        linesColor="#dedede"
-        :linesWidth="1"
-        :lineLinked="true"
-        :lineOpacity="0.4"
-        :linesDistance="150"
-       	:moveSpeed='moveSpeed'
-        :hoverEffect="true"
-        hoverMode="repulsepp"
-        :clickEffect="true"
-        clickMode="bubble"
-        class='dsds4'
+		        color="#dedede"
+		        :particleOpacity="0.7"
+		        :particlesNumber="40"
+		        shapeType="circle"
+		        :particleSize="4"
+		        linesColor="#dedede"
+		        :linesWidth="1"
+		        :lineLinked="true"
+		        :lineOpacity="0.4"
+		        :linesDistance="150"
+		       	:moveSpeed='moveSpeed'
+		        :hoverEffect="true"
+		        hoverMode="repulsepp"
+		        :clickEffect="true"
+		        clickMode="bubble"
+		        class='dsds4'
       >
       </vue-particles>
 			
@@ -68,11 +68,14 @@
 		</div>
 
 		<div class="proWarp">
-			
-			<div class="pro">
-				<span class="lh icon title"></span>
-				<span class="lh image IIMg"></span>
-				<span class="lh line"></span>
+			<!-- width: 70%;
+    height: 80%;
+    background-size: 150%;
+    background-position: -190px -76px; -->
+			<div :style="{paddingTop:SSWidth[5]?SSWidth[5]:''}" class="pro">
+				<span :style="{marginBottom:SSWidth[5]?SSWidth[5]:''}" class="lh icon title"></span>
+				<span :style="{width:SSWidth[0]?SSWidth[0]:'',height:SSWidth[1]?SSWidth[1]:'',backgroundSize:SSWidth[2]?SSWidth[2]:'',backgroundPosition:SSWidth[3]?SSWidth[3]:'' }" class="lh image IIMg"></span>
+				<span :style="{bottom:SSWidth[4]?SSWidth[4]:''}" class="lh line"></span>
 			</div>
 		</div>
 
@@ -80,12 +83,12 @@
 			<div class="str" ></div>
 			<div class="san"></div>	
 			<div class="app">
-				<div class="bpp lh">
-					<p class="lh title icon"></p>
+				<div :style="{width:SSApp[0]?SSApp[0]:'',height:SSApp[1]?SSApp[1]:'',transform:SSApp[2]?SSApp[2]:''}" class="bpp lh">
+					<p :style="{marginTop:SSApp[3]?SSApp[3]:'',marginBottom:SSApp[4]?SSApp[4]:''}" class="lh title icon"></p>
 					<ul>
-						<li v-for='(item,index) in bpp'>
+						<li :style="{width:SSApp[5]?SSApp[5]:'',height:SSApp[6]?SSApp[6]:''}" v-for='(item,index) in bpp'>
 							<p class="lh image" :class=" 'ulImg'+ index"></p>
-							<span>{{item.text}}</span>
+							<span style="white-space: nowrap;text-align: center;">{{item.text}}</span>
 						</li>
 					</ul>
 					
@@ -103,9 +106,9 @@
 
 		<div class="informationWarp">
 			<div class="information">
-				<p class="lh title icon"></p>
+				<p :style="{marginBottom:SSInfo[1]?SSInfo[1]: '' }" class="lh title icon"></p>
 				<ul>
-					<li @click='todeta(id)' v-for='(ii,id) in 3'>
+					<li style="box-sizing: content-box;" @click='todeta(id)' v-for='(ii,id) in 3'>
 						<img src="/static/img/d81bca446095aa380f3b38c611f8e839688e5ca91429d-BGS6ii_fw658.jpeg">
 						<p class="titles">数据块链（PreICO）</p>
 						<p class="deta">DataBlockChain.io是一个革命性的数据平台，它打乱了公司和个人收集优质数据的方式。我们的产品将</p>
@@ -121,8 +124,8 @@
 			<div :class="'side' +f" class="sides image" v-for='(i,f) in 3'></div>
 
 
-			<div class="map">
-				<p class="lh icon title">	</p><br>	
+			<div :style="{paddingTop:SSMap[0]?SSMap[0]:''}" class="map">
+				<p :style="{marginBottom:SSMap[1]?SSMap[1]:''}" class="lh icon title">	</p><br>	
 				<div class="img image lh">
 					<div :class="'texts' + index" class="tesrs" v-for='(item,index) in line'>  
 						<p class="title">{{item.title}}</p>
@@ -137,7 +140,7 @@
 			<div class="end">
 				<div class="quotes image"></div>
 
-				<div class="info">
+				<div :style="{left:SSInfo[0]?SSInfo[0]:''}" class="info">
 					<p class="icon" style="background-position: -1963px -753px;"></p>
 					<p class="terx">炉石星球项目团队由美国硅谷开发团队组成。运营团队主要由二手交易领域高管、专注二手市场领域的投资人、 区块链资深专家以及二手市场行业资深程序员构成，核心团队成员在二手行业有超过十年以上经验和积累。并在美国运营有成熟的二手线上交易平台，并拥有大量用户数量。</p>
 				</div>
@@ -203,6 +206,10 @@
 		},
 		data(){
 			return({
+				SSInfo:[],
+				SSMap:[],
+				SSApp:[],
+				SSWidth:[],
 				mozTrs:'',
 				mozColor:'',
 				moveSpeed:8,
@@ -409,6 +416,49 @@
 			}
 		},
 		mounted(){
+			if(document.documentElement.offsetWidth < 1400){
+				
+				this.SSWidth[0] = '70%'
+				this.SSWidth[1] = '80%'
+				this.SSWidth[2] = '150%'
+				this.SSWidth[3] = '-220px -76px'
+				this.SSWidth[4] = '-8%'
+				this.SSWidth[5] = '5%'
+				this.SSApp[0] = '1200px'
+				this.SSApp[1] = '400px'
+				this.SSApp[2] = 'translateX(7%)'
+				this.SSApp[3] = '5%'
+				this.SSApp[4] = '2%'
+				this.SSApp[5] = '100px'
+				this.SSApp[6] = '100px'
+				this.SSMap[0] = '5%'
+				this.SSMap[1] = '3%'
+
+				this.SSInfo[0] = '5%'
+				this.SSInfo[1] = '3%'
+
+
+
+
+
+
+
+
+
+				
+				// this.bppS = '100%'
+				// this.infoUls = '-4%'
+				// this.inilli[0] = '30%'
+				// this.inilli[1] = '80%'
+				// this.bpptiS = '3%'
+				// this.strSb = '5%'
+				// this.linS = '-10%'
+				// this.EvS = '10%'
+				// this.chS[0] = '50%'
+				// this.chS[1] = '50%'
+				// this.chS[2] = '10px'
+				// this.chS[3] = '10px'
+			}
 			if(navigator.userAgent.indexOf('Firefox') != -1){
 				this.mozColor = '-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(152, 131, 241, 1)), to(rgba(252,119,177, 1)))'
 				this.mozTrs = 'translateX(-85px)'
@@ -628,9 +678,13 @@
 					margin-bottom: 100px;
 				}
 				>.IIMg{
+					
 				    width: 800px;
+				    height: 610px;
 					background-size: 188%;
-					height: 610px;
+
+	
+					
 					background-position: -348px  -98px;
 				}
 				>.line{
@@ -795,9 +849,10 @@
 
 						>img{
 							border-radius: 8px;
-
-							width: 	330px;
-							height: 223px;
+							width: 90%;
+							height: 40%;
+							/*width: 	330px;
+							height: 223px;*/
 							margin-bottom: 5%;
 						}
 						>.titles{
